@@ -279,11 +279,13 @@ class _ReactiveTextFieldState<T>
   @override
   void onControlValueChanged(dynamic value) {
     final effectiveValue = (value == null) ? '' : value.toString();
-    _textController.value = _textController.value.copyWith(
+    if (mounted) {
+      _textController.value = _textController.value.copyWith(
       text: effectiveValue,
       selection: TextSelection.collapsed(offset: effectiveValue.length),
-      composing: TextRange.empty,
-    );
+      composing: TextRange.empty);
+    }
+    
 
     super.onControlValueChanged(value);
   }
