@@ -284,10 +284,12 @@ class _ReactiveTextFieldState<T>
       text: effectiveValue,
       selection: TextSelection.collapsed(offset: effectiveValue.length),
       composing: TextRange.empty);
+
+      super.onControlValueChanged(value);
+
     }
     
 
-    super.onControlValueChanged(value);
   }
 
   @override
