@@ -223,7 +223,7 @@ class ReactiveFormFieldState<ModelDataType, ViewDataType>
   }
 
   void _checkTouchedState() {
-    if (touched) {
+    if (touched && mounted) {
       setState(() {});
     }
   }
